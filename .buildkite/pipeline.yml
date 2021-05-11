@@ -1,6 +1,8 @@
 steps:
   - label: ":eyes: Verify"
     command: verify.sh  
+  - block: ":thumbsup: Approve"
+    branches: main
   - label: ":rocket: Deploy"
     command: deploy.sh
     env:
