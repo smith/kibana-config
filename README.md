@@ -2,11 +2,9 @@
 
 Configuration for Kibana objects, with a script to deploy them through Kibana's APIs.
 
-The directories in this repository have saved JSON output from Kibana objects.
+## deploy.sh
 
 The deploy.sh script uploads the objects using Kibana's APIs.
-
-## deploy.sh
 
 Run `./deploy.sh` with these environment variables set:
 
@@ -18,13 +16,17 @@ Run `./deploy.sh` with these environment variables set:
 
 Requires `curl`.
 
-# prettify.sh
+## export.sh
 
-Breaks apart a file from an export into multiple, pretty printed files in directories.
+Using the same variables as above, use the export API to export objects:
 
-Can use these environment variables:
+`./export.sh > export.ndjson`
 
-* `IMPORT_FILE` (optional): The NDJSON file to be imported. Default is export.ndjson
+## prettify.sh
+
+Expand an .ndjson file into a pretty-formatted JSON file:
+
+`./prettify.sh export.ndjson > export.json`
 
 
 ## buildkite

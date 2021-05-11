@@ -15,7 +15,7 @@ if [ -z ${KIBANA_SPACE+x} ]; then
     error_exit "KIBANA_SPACE is not set"
 fi
 
-curl -X POST "$KIBANA_URL/s/$KIBANA_SPACE/api/saved_objects/_import" \
+curl -s -X POST "$KIBANA_URL/s/$KIBANA_SPACE/api/saved_objects/_import?overwrite=true" \
     --user "$ES_USER:$ES_PASS" \
     --header  "kbn-xsrf: true" \
-    --form file="@$IMPORT_FILE"
+    --form file="@$IMPORT_FILE" | jq
