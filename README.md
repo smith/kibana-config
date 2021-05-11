@@ -4,7 +4,7 @@ Configuration for Kibana objects, with a script to deploy them through Kibana's 
 
 ## deploy.sh
 
-The deploy.sh script uploads the objects using Kibana's APIs.
+The deploy.sh script uploads the objects using Kibana's saved object import API.
 
 Run `./deploy.sh` with these environment variables set:
 
@@ -27,6 +27,3 @@ Using the same variables as above, use the export API to export objects:
 Expand an .ndjson file into a pretty-formatted JSON file:
 
 `./prettify.sh export.ndjson > export.json`
-
-
-## buildkite
