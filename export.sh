@@ -13,7 +13,7 @@ if [ -z ${KIBANA_SPACE+x} ]; then
 fi
 
 curl -s -X POST "$KIBANA_URL/s/$KIBANA_SPACE/api/saved_objects/_export" \
-    --user "$ES_USER:$ES_PASS" \
+    --user "$ES_USER:$ES_PASSWORD" \
     --header "Content-Type: application/json" \
     --header  "kbn-xsrf: true" \
     --data '{"type":["apm-indices","index-pattern","config","dashboard","alert","url","query","visualization","timelion-sheet","graph-workspace","search","tag","lens","canvas-element","canvas-workpad","map","action","infrastructure-ui-source","metrics-explorer-view","inventory-view"],"includeReferencesDeep":true,"excludeExportDetails":true}'

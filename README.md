@@ -9,7 +9,7 @@ The deploy.sh script uploads the objects using Kibana's APIs.
 Run `./deploy.sh` with these environment variables set:
 
 * `ES_USER`
-* `ES_PASS`
+* `ES_PASSWORD`
 * `KIBANA_SPACE`
 * `KIBANA_URL`
 * `IMPORT_FILE` (optional): The NDJSON file to be imported. Default is export.ndjson

@@ -16,6 +16,6 @@ if [ -z ${KIBANA_SPACE+x} ]; then
 fi
 
 curl -s -X POST "$KIBANA_URL/s/$KIBANA_SPACE/api/saved_objects/_import?overwrite=true" \
-    --user "$ES_USER:$ES_PASS" \
+    --user "$ES_USER:$ES_PASSWORD" \
     --header  "kbn-xsrf: true" \
     --form file="@$IMPORT_FILE" | jq
