@@ -1,8 +1,6 @@
 #!/bin/bash
 
 set -e
-set -o pipefail
-echo "Deploying Kibana objects…"
 
 IMPORT_FILE=${IMPORT_FILE:-export.ndjson}  
 
@@ -16,7 +14,14 @@ if [ -z ${KIBANA_SPACE+x} ]; then
     error_exit "KIBANA_SPACE is not set"
 fi
 
-curl -s -X POST "$KIBANA_URL/s/$KIBANA_SPACE/api/saved_objects/_import?overwrite=true" \
+OUTPUT=$(curl -s -X POST "$KIBANA_URL/s/$KIBANA_SPACE/api/saved_objects/_import?overwrite=true" \
     --user "$ES_USER:$ES_PASSWORD" \
     --header  "kbn-xsrf: true" \
-    --form file="@$IMPORT_FILE" | jq
+    --form file="@$IMPORT_FILE")
+ERROR=$(echo "$OUTPUT" | jq .error)
+
+if [ "$ERROR" != "null" ]; then
+    echo "$OUTPUT" | jq 1>&2; exit 1;
+fi
+
+echo "$OUTPUT" | jq
