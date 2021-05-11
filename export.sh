@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 error_exit() { echo "$@" 1>&2; exit 1; }
 

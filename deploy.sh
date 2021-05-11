@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 echo "Deploying Kibana objects…"
 
 IMPORT_FILE=${IMPORT_FILE:-export.ndjson}  
