@@ -6,6 +6,8 @@ IMPORT_FILE=${IMPORT_FILE:-export.ndjson}
 
 error_exit() { echo "$@" 1>&2; exit 1; }
 
+ES_PASSWORD="${ES_PASSWORD:-$(vault read -field=es_password secret/kibana-issues/dev/apm-onweek-alerts-as-code)}"
+
 if [ -z ${KIBANA_URL+x} ]; then
     error_exit "KIBANA_URL is not set"
 fi
