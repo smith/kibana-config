@@ -55,7 +55,7 @@
   {
     "attributes": {
       "buildNum": 9007199254740991,
-      "defaultIndex": "apm_static_index_pattern_id
+      "defaultIndex": "apm_static_index_pattern_id"
     },
     "coreMigrationVersion": "8.0.0",
     "id": "8.0.0",
