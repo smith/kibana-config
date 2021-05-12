@@ -4,7 +4,7 @@
 
 Configuration for Kibana objects, with a script to deploy them through Kibana's APIs.
 
-The scripts require `curl` and `jq`.
+The scripts require `curl` and `jq`. These should be available on the Buildkite agents (see [the kibana-buildkite setup script](https://github.com/elastic/kibana-buildkite/blob/72612848b89873eb3cd5a0521c859279012393a4/agents/setup.sh).)
 
 ## Scripts
 
@@ -25,6 +25,10 @@ Run `./deploy.sh` with these environment variables set:
 Using the same variables as above, use the export API to export objects:
 
 `./export.sh > export.ndjson`
+
+### verify.sh
+
+Verifies that the .json and .ndjson files are well-formed.
 
 ### prettify.sh
 
